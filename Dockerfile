@@ -14,6 +14,8 @@ RUN apk add --update ca-certificates wget && \
 
 ADD config.js /etc/statsd/config.js
 
+ENV NODE_PATH /usr/local/lib/node_modules
+
 EXPOSE 8125/udp
 
 CMD [ "/usr/local/bin/node", "/opt/statsd/stats.js", "/etc/statsd/config.js" ]

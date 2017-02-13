@@ -9,9 +9,11 @@ RUN apk add --update ca-certificates wget && \
     unzip master.zip && \
     rm -f master.zip && \
     mv /opt/statsd-master /opt/statsd && \
-    npm install -g generic-pool
+    npm install -g generic-pool && \
+    mkdir /etc/statsd
 
-ADD config.js /etc/statsd
+ADD config.js /etc/statsd/config.js
 
 EXPOSE 8125/udp
-ENTRYPOINT ["node" "/opt/statsd/stats.js" "/etc/statsd/config.js"]
+
+CMD ["node" "/opt/statsd/stats.js" "/etc/statsd/config.js"]

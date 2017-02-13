@@ -8,7 +8,8 @@ RUN apk add --update ca-certificates wget && \
     wget https://github.com/etsy/statsd/archive/master.zip && \
     unzip master.zip && \
     rm -f master.zip && \
-    mv statsd-master statsd
+    mv statsd-master statsd \
+    npm install generic-pool
 
 ADD config.js /etc/statsd
 

@@ -13,6 +13,7 @@ RUN apk add --update ca-certificates wget && \
     mkdir /etc/statsd
 
 ADD config.js /etc/statsd/config.js
+ADD backends/smart_repeater.js /opt/statsd/backends/smart_repeater.js
 
 ENV NODE_PATH /usr/local/lib/node_modules
 
